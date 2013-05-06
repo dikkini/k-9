@@ -1,0 +1,41 @@
+package com.fsck.k9.bouncycastle2.jce.provider.symmetric;
+
+import com.fsck.k9.bouncycastle2.asn1.ntt.NTTObjectIdentifiers;
+
+import java.util.HashMap;
+
+public class CamelliaMappings
+    extends HashMap
+{
+    public CamelliaMappings()
+    {
+        put("AlgorithmParameters.CAMELLIA", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$AlgParams");
+        put("Alg.Alias.AlgorithmParameters." + NTTObjectIdentifiers.id_camellia128_cbc, "CAMELLIA");
+        put("Alg.Alias.AlgorithmParameters." + NTTObjectIdentifiers.id_camellia192_cbc, "CAMELLIA");
+        put("Alg.Alias.AlgorithmParameters." + NTTObjectIdentifiers.id_camellia256_cbc, "CAMELLIA");
+
+        put("AlgorithmParameterGenerator.CAMELLIA", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$AlgParamGen");
+        put("Alg.Alias.AlgorithmParameterGenerator." + NTTObjectIdentifiers.id_camellia128_cbc, "CAMELLIA");
+        put("Alg.Alias.AlgorithmParameterGenerator." + NTTObjectIdentifiers.id_camellia192_cbc, "CAMELLIA");
+        put("Alg.Alias.AlgorithmParameterGenerator." + NTTObjectIdentifiers.id_camellia256_cbc, "CAMELLIA");
+
+        put("Cipher.CAMELLIA", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$ECB");
+        put("Cipher." + NTTObjectIdentifiers.id_camellia128_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$CBC");
+        put("Cipher." + NTTObjectIdentifiers.id_camellia192_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$CBC");
+        put("Cipher." + NTTObjectIdentifiers.id_camellia256_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$CBC");
+
+        put("Cipher.CAMELLIARFC3211WRAP", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$RFC3211Wrap");
+        put("Cipher.CAMELLIAWRAP", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$Wrap");
+        put("Alg.Alias.Cipher." + NTTObjectIdentifiers.id_camellia128_wrap, "CAMELLIAWRAP");
+        put("Alg.Alias.Cipher." + NTTObjectIdentifiers.id_camellia192_wrap, "CAMELLIAWRAP");
+        put("Alg.Alias.Cipher." + NTTObjectIdentifiers.id_camellia256_wrap, "CAMELLIAWRAP");
+
+        put("KeyGenerator.CAMELLIA", "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia128_wrap, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen128");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia192_wrap, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen192");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia256_wrap, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen256");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia128_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen128");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia192_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen192");
+        put("KeyGenerator." + NTTObjectIdentifiers.id_camellia256_cbc, "com.fsck.k9.bouncycastle2.jce.provider.symmetric.Camellia$KeyGen256");
+    }
+}

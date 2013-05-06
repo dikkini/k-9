@@ -47,6 +47,15 @@
     <orderEntry type="module" module-name="ckChangeLog" />
     <orderEntry type="module" module-name="HoloColorPicker" />
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/slf4j-log4j13-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 

@@ -30,10 +30,10 @@ public class Apg extends CryptoProvider {
     static final long serialVersionUID = 0x21071235;
     public static final String NAME = "apg";
 
-    private static final String mApgPackageName = "org.thialfihar.android.apg";
+    private static final String mApgPackageName = "com.fsck.k9.apg";
     private static final int mMinRequiredVersion = 16;
 
-    public static final String AUTHORITY = "org.thialfihar.android.apg.provider";
+    public static final String AUTHORITY = "com.fsck.k9.apg.provider";
     public static final Uri CONTENT_URI_SECRET_KEY_RING_BY_KEY_ID =
         Uri.parse("content://" + AUTHORITY + "/key_rings/secret/key_id/");
     public static final Uri CONTENT_URI_SECRET_KEY_RING_BY_EMAILS =
@@ -45,14 +45,14 @@ public class Apg extends CryptoProvider {
         Uri.parse("content://" + AUTHORITY + "/key_rings/public/emails/");
 
     public static class Intent {
-        public static final String DECRYPT = "org.thialfihar.android.apg.intent.DECRYPT";
-        public static final String ENCRYPT = "org.thialfihar.android.apg.intent.ENCRYPT";
-        public static final String DECRYPT_FILE = "org.thialfihar.android.apg.intent.DECRYPT_FILE";
-        public static final String ENCRYPT_FILE = "org.thialfihar.android.apg.intent.ENCRYPT_FILE";
-        public static final String DECRYPT_AND_RETURN = "org.thialfihar.android.apg.intent.DECRYPT_AND_RETURN";
-        public static final String ENCRYPT_AND_RETURN = "org.thialfihar.android.apg.intent.ENCRYPT_AND_RETURN";
-        public static final String SELECT_PUBLIC_KEYS = "org.thialfihar.android.apg.intent.SELECT_PUBLIC_KEYS";
-        public static final String SELECT_SECRET_KEY = "org.thialfihar.android.apg.intent.SELECT_SECRET_KEY";
+        public static final String DECRYPT = "com.fsck.k9.apg.intent.DECRYPT";
+        public static final String ENCRYPT = "com.fsck.k9.apg.intent.ENCRYPT";
+        public static final String DECRYPT_FILE = "com.fsck.k9.apg.intent.DECRYPT_FILE";
+        public static final String ENCRYPT_FILE = "com.fsck.k9.apg.intent.ENCRYPT_FILE";
+        public static final String DECRYPT_AND_RETURN = "com.fsck.k9.apg.intent.DECRYPT_AND_RETURN";
+        public static final String ENCRYPT_AND_RETURN = "com.fsck.k9.apg.intent.ENCRYPT_AND_RETURN";
+        public static final String SELECT_PUBLIC_KEYS = "com.fsck.k9.apg.intent.SELECT_PUBLIC_KEYS";
+        public static final String SELECT_SECRET_KEY = "com.fsck.k9.apg.intent.SELECT_SECRET_KEY";
     }
 
     public static final String EXTRA_TEXT = "text";
@@ -100,19 +100,7 @@ public class Apg extends CryptoProvider {
      */
     @Override
     public boolean isAvailable(Context context) {
-        try {
-            PackageInfo pi = context.getPackageManager().getPackageInfo(mApgPackageName, 0);
-            if (pi.versionCode >= mMinRequiredVersion) {
-                return true;
-            } else {
-                Toast.makeText(context,
-                               R.string.error_apg_version_not_supported, Toast.LENGTH_SHORT).show();
-            }
-        } catch (NameNotFoundException e) {
-            // not found
-        }
-
-        return false;
+        return true;
     }
 
     /**
