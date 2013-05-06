@@ -369,9 +369,6 @@
         <XML>
           <option name="XML_LEGACY_SETTINGS_IMPORTED" value="true" />
         </XML>
-        <ADDITIONAL_INDENT_OPTIONS fileType="haml">
-          <option name="INDENT_SIZE" value="2" />
-        </ADDITIONAL_INDENT_OPTIONS>
         <ADDITIONAL_INDENT_OPTIONS fileType="lua">
           <option name="INDENT_SIZE" value="2" />
         </ADDITIONAL_INDENT_OPTIONS>
@@ -417,7 +414,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android 4.1 Platform" project-jdk-type="Android SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android 4.1.2 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="StarteamConfiguration">
@@ -643,6 +640,12 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/xpp3/xpp3/1.1.4c/xpp3-1.1.4c-sources.jar!/" />
       </SOURCES>
+    </library>
+    <library name="org.slf4j:slf4j-log4j13:1.0.1" type="repository">
+      <properties maven-id="org.slf4j:slf4j-log4j13:1.0.1" />
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES />
     </library>
   </component>
 </project>
