@@ -26,6 +26,7 @@ public final class Id {
         public static final int update = 0x21070004;
 
         public static final class option {
+            public static final int main_apg_activity = 0x21070000;
             public static final int new_pass_phrase = 0x21070001;
             public static final int create = 0x21070002;
             public static final int about = 0x21070003;

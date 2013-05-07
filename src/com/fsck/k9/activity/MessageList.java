@@ -37,6 +37,7 @@ import com.fsck.k9.activity.misc.SwipeGestureDetector.OnSwipeGestureListener;
 import com.fsck.k9.activity.setup.AccountSettings;
 import com.fsck.k9.activity.setup.FolderSettings;
 import com.fsck.k9.activity.setup.Prefs;
+import com.fsck.k9.apg.*;
 import com.fsck.k9.crypto.PgpData;
 import com.fsck.k9.fragment.MessageListFragment;
 import com.fsck.k9.fragment.MessageViewFragment;
@@ -744,6 +745,30 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                 goBack();
                 return true;
             }
+            // APG
+            case Id.menu.option.main_apg_activity: {
+                Intent apg = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(apg);
+                return true;
+            }
+            case Id.menu.option.manage_public_keys: {
+                startActivity(new Intent(this, PublicKeyListActivity.class));
+                return true;
+            }
+
+            case Id.menu.option.manage_secret_keys: {
+                startActivity(new Intent(this, SecretKeyListActivity.class));
+                return true;
+            }
+            case Id.menu.option.key_server: {
+                startActivity(new Intent(this, KeyServerQueryActivity.class));
+                return true;
+            }
+            case Id.menu.option.create: {
+                showDialog(Id.dialog.new_account);
+                return true;
+            }
+
             case R.id.compose: {
                 mMessageListFragment.onCompose();
                 return true;
@@ -902,6 +927,16 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
         getSupportMenuInflater().inflate(R.menu.message_list_option, menu);
         mMenu = menu;
         mMenuButtonCheckMail= menu.findItem(R.id.check_mail);
+        menu.add(0, Id.menu.option.main_apg_activity, 0, R.string.title_ApgApplication)
+                .setIcon(android.R.drawable.ic_menu_manage);
+        menu.add(1, Id.menu.option.manage_public_keys, 1, R.string.menu_managePublicKeys)
+                .setIcon(android.R.drawable.ic_menu_manage);
+        menu.add(2, Id.menu.option.manage_secret_keys, 2, R.string.menu_manageSecretKeys)
+                .setIcon(android.R.drawable.ic_menu_manage);
+        menu.add(3, Id.menu.option.key_server, 3, R.string.menu_keyServer)
+                .setIcon(android.R.drawable.ic_menu_search);
+        menu.add(4, Id.menu.option.create, 4, R.string.menu_addAccount)
+                .setIcon(android.R.drawable.ic_menu_add);
         return true;
     }
 

@@ -19,6 +19,7 @@
 
     <!-- title_lowerCase: capitalized words, no punctuation -->
     <string name="title_mailInbox">Mail Inbox</string>
+    <string name="title_ApgApplication">Run APG Application</string>
     <string name="title_managePublicKeys">Manage Public Keys</string>
     <string name="title_manageSecretKeys">Manage Secret Keys</string>
     <string name="title_selectRecipients">Select Recipients</string>
