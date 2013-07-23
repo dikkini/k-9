@@ -17,3 +17,8 @@ monkey.txt
 *~
 *.iws
 /target/
+*.class
+*.iml
+.name
+.idea
+*.apk
