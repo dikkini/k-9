@@ -1,11 +1,12 @@
 package com.fsck.k9.view;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.util.regex.Matcher;
 
+import com.fsck.k9.activity.MessageReference;
+import com.fsck.k9.apg.Apg;
+import com.fsck.k9.apg.DecryptActivity;
+import com.fsck.k9.fragment.MessageViewFragment;
 import org.apache.commons.io.IOUtils;
 
 import android.content.Context;
@@ -223,8 +224,29 @@ public class AttachmentView extends FrameLayout implements OnClickListener, OnLo
 
     private void onViewButtonClicked() {
         if (mMessage != null) {
-            mController.loadAttachment(mAccount, mMessage, part, new Object[] { false, this }, mListener);
+            Uri uri = AttachmentProvider.getAttachmentUri(mAccount, part.getAttachmentId());
+            StringBuilder total = new StringBuilder();
+            try {
+                InputStream inputStream = mContext.getContentResolver().openInputStream(uri);
+                BufferedReader r = new BufferedReader(new InputStreamReader(inputStream));
+                total = new StringBuilder(inputStream.available());
+                String line;
+                while ((line = r.readLine()) != null) {
+                    total.append(line).append("\n");
+                }
+            } catch (IOException ignored) {}
+
+            Matcher matcher = Apg.PGP_MESSAGE.matcher(total.toString());
+            if (matcher.matches()) {
+                Intent intent = new Intent(getContext(), DecryptActivity.class);
+                intent.setAction(Apg.Intent.DECRYPT);
+                intent.putExtra(Apg.EXTRA_TEXT, total.toString());
+                getContext().startActivity(intent);
+            } else {
+                mController.loadAttachment(mAccount, mMessage, part, new Object[] { false, this }, mListener);
+            }
         }
+
     }
 
 
